@@ -6,7 +6,7 @@ class Backend {
 
     constructor(){
         this.express = express();
-        //this.database();
+        this.database();
         this.middlewares();
         this.routes();
 
@@ -16,9 +16,9 @@ class Backend {
 
     database(){
 
-        mongoose.connect(db.uri, { useNewUrlParser: true})
+        mongoose.connect(db.uri, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, autoIndex: true, useFindAndModify: false })
     }
-
+    
     middlewares(){
         this.express.use(express.json());
     }
